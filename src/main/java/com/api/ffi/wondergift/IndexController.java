@@ -91,41 +91,39 @@ public class IndexController {
 
     @RequestMapping(value = "/version")
     public @ResponseBody
-    String tes() {
+    Map<String, Object> tes() {
         Map<String, Object> map = new HashMap<String, Object>();
-//        map.put("VERSION", "ITD FFI 2023 1.0.1");
-//        return map;
+        map.put("VERSION", "ITD FFI 2023 1.0.1");
+        return map;
+//        String json = "{\n"
+//                + "  \"status\": \"200\",\n"
+//                + "  \"message\": \"Voucher sah\",\n"
+//                + "  \"data\": [\n"
+//                + "    {\n"
+//                + "      \"itemcode\": \"1077\",\n"
+//                + "      \"itemname\": \"Charge TA\",\n"
+//                + "      \"itemvariant\": \"Promo\",\n"
+//                + "      \"itemprice\": 0,\n"
+//                + "      \"vouchervalue\": 0,\n"
+//                + "      \"discountvalue\": 0,\n"
+//                + "      \"sign\": \"2f9263e02d5e06cf31599516599e1cba\"\n"
+//                + "    },\n"
+//                + "    {\n"
+//                + "      \"itemcode\": \"12345\",\n"
+//                + "      \"itemname\": \"F.Bucket Tin 1Pc Chicken\",\n"
+//                + "      \"itemvariant\": \"Promo\",\n"
+//                + "      \"itemprice\": 0,\n"
+//                + "      \"vouchervalue\": 0,\n"
+//                + "      \"discountvalue\": 0,\n"
+//                + "      \"sign\": \"2f9263e02d5e06cf31599516599e1cba\"\n"
+//                + "    }\n"
+//                + "  ]\n"
+//                + "}";
+//
+//        JsonObject convertedObject = new Gson().fromJson(json, JsonObject.class);
+//        String result = convertedObject.toString();
 
-//        
-        String json = "{\n"
-                + "  \"status\": \"200\",\n"
-                + "  \"message\": \"Voucher sah\",\n"
-                + "  \"data\": [\n"
-                + "    {\n"
-                + "      \"itemcode\": \"1077\",\n"
-                + "      \"itemname\": \"Charge TA\",\n"
-                + "      \"itemvariant\": \"Promo\",\n"
-                + "      \"itemprice\": 0,\n"
-                + "      \"vouchervalue\": 0,\n"
-                + "      \"discountvalue\": 0,\n"
-                + "      \"sign\": \"2f9263e02d5e06cf31599516599e1cba\"\n"
-                + "    },\n"
-                + "    {\n"
-                + "      \"itemcode\": \"12345\",\n"
-                + "      \"itemname\": \"F.Bucket Tin 1Pc Chicken\",\n"
-                + "      \"itemvariant\": \"Promo\",\n"
-                + "      \"itemprice\": 0,\n"
-                + "      \"vouchervalue\": 0,\n"
-                + "      \"discountvalue\": 0,\n"
-                + "      \"sign\": \"2f9263e02d5e06cf31599516599e1cba\"\n"
-                + "    }\n"
-                + "  ]\n"
-                + "}";
-
-        JsonObject convertedObject = new Gson().fromJson(json, JsonObject.class);
-        String result = convertedObject.toString();
-
-        return result;
+        //       return result
     }
 
     @RequestMapping(value = "/post-wondergift-action", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -171,46 +169,59 @@ public class IndexController {
             }
             String result = content.toString();
 
+//            map = gson.fromJson(result, new TypeToken<Map<String, Object>>() {
+//            }.getType());
+////            if (map.get("message").equals("Voucher sah")) {
+////                map.put("status", "gohan");
+////                map.put("data1", "{\n"
+////                        + "\"itemcode\": \"1234\"\n"
+////                        + "\"itemname\": \"Chicken Wing\"\n"
+////                        + "\"itemvariant\": \"Original\"\n"
+////                        + "\"itemprice\": \"0\"\n"
+////                        + "\"vouchervalue\": \"\"\n"
+////                        + "\"discountvalue\": \"\"\n"
+////                        + "\"sign\": \"250a70af4df14695ae1fa6abfe3d9de7 \"\n"
+////                        + " }");
+////            } else {
+////                map.put("status", "son goku Ss");
+////                map.put("dona", "COBA RESPON");
+////                map.get("data");
+////                
+////                List test = (List) map.get("data");
+////                
+////                map.put("data1", "{\n"
+////                        + "\"itemcode\": \"1234\"\n"
+////                        + "\"itemname\": \"Chicken Wing\"\n"
+////                        + "\"itemvariant\": \"Original\"\n"
+////                        + "\"itemprice\": \"0\"\n"
+////                        + "\"vouchervalue\": \"\"\n"
+////                        + "\"discountvalue\": \"\"\n"
+////                        + "\"sign\": \"250a70af4df14695ae1fa6abfe3d9de7 \"\n"
+////                        + " }");
+////            }
+//
+//        } catch (UnsupportedEncodingException ex) {
+//            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        System.out.println(map);
+//
+//        return map;
+            System.out.println(result);
+
             map = gson.fromJson(result, new TypeToken<Map<String, Object>>() {
             }.getType());
-            if (map.get("message").equals("Voucher sah")) {
-                map.put("status", "gohan");
-                map.put("data1", "{\n"
-                        + "\"itemcode\": \"1234\"\n"
-                        + "\"itemname\": \"Chicken Wing\"\n"
-                        + "\"itemvariant\": \"Original\"\n"
-                        + "\"itemprice\": \"0\"\n"
-                        + "\"vouchervalue\": \"\"\n"
-                        + "\"discountvalue\": \"\"\n"
-                        + "\"sign\": \"250a70af4df14695ae1fa6abfe3d9de7 \"\n"
-                        + " }");
-            } else {
-                map.put("status", "son goku Ss");
-                map.put("dona", "COBA RESPON");
-                map.get("data");
-                
-                List test = (List) map.get("data");
-                
-                map.put("data1", "{\n"
-                        + "\"itemcode\": \"1234\"\n"
-                        + "\"itemname\": \"Chicken Wing\"\n"
-                        + "\"itemvariant\": \"Original\"\n"
-                        + "\"itemprice\": \"0\"\n"
-                        + "\"vouchervalue\": \"\"\n"
-                        + "\"discountvalue\": \"\"\n"
-                        + "\"sign\": \"250a70af4df14695ae1fa6abfe3d9de7 \"\n"
-                        + " }");
-            }
 
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         System.out.println(map);
-
         return map;
+
     }
 
     @RequestMapping(value = "/post-wondergift-redeem", produces = MediaType.APPLICATION_JSON_VALUE)
